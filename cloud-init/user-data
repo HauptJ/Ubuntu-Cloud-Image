@@ -1,0 +1,20 @@
+#cloud-config
+#
+
+# let cloud-init make changes to /etc/hosts
+manage_etc_hosts: True
+
+# create a watcher user
+users:
+  - name: watcher
+    gecos: Watcher Monitoring
+    passwd: $6$tZRgu/Qh$q0V4GHZXTcrAP8ruMkvLdwRDTZCFwuHm6kleftSPw0apWd4O.KGFoilp66xzq7ecE3Uq5gbRRwMKfazcFLbUF/ 
+    lock_passwd: False
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC/BFRksXiZucGHEFBD8Eb9Jyn+lICS1/RA1f2mRkHhX61sc317JUvFJ9OPXqwGEAX5DI+u5xac8us2YnE+tBcS+uXDo6RfAX2+Vfm9HBoRCH23jZgizQTMIgzfDAb2GIBy1u9dpjVwn3xAG53cY3HuWroOx02r6DTkIlulRdzCqrmcx6MK40pFp3UBuByZWnIcQSGKPGsstOfz4LdUzSwcVSemPfhcV4xP2nxG5eXU1/uUgKOVd8nlG6sAPunU8EridUK0Mu/vZQ6ECnIV92iI1Ff3MVG31C774Sz75E4BqhkZC1C+Kg8CIoECV7lr8m3i1wxdxbVg1b0ZgOxtbUq2br+th9vN0fljWUzU4QahKyksM5ihPcDvuxcKjGzd06/TpJFnNd77OTNZWFL0zBP3AvjLsqPFPzuXdIvp/djFaA14D+pEbYaeo0iKy0EYzUM22kDoBweIHrtX9wW8hINy1SFfcKq4k4M4SDTzN+rfSu/1bmm2NHs/cjOc2Mf8zz2gtXQZqF7K8U8lUrnwTKXUw5qBp0dEJ1b/h2RXR2VnRx24VG/R+hqtaJMmPDRkyaBYu8CJ7sRhkAeu4D1tZciXinGpM6yV/2iTs36CH8hLw2Ku00RJs5jBH+JgL6FgtylUqwAiKTMtGoaV+VEBhdsyP/VkVfoSCfW78BOzBSXirw== cam-msa@centurylink.com 
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: sudo
+    shell: /bin/bash
+
+# enable ssh PasswordAuthentication
+ssh_pwauth: True

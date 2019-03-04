@@ -1,0 +1,9 @@
+---
+- hosts: box
+  become: yes
+  gather_facts: yes
+
+  roles:
+    - nfs
+    - packer-debian
+    - boxsetup

@@ -1,0 +1,12 @@
+---
+- apt: "name={{ item }} state=installed"
+  with_items:
+    - git
+    - wget
+    - curl
+    - vim
+    - cloud-init
+
+- template:
+    src: cloud.cfg
+    dest: /etc/cloud/cloud.cfg
